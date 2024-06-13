@@ -149,12 +149,11 @@ public class Main {
         int dateActual = 2024;
         int dateMinus200 = dateActual - 200;
         int datePlus100 = dateActual + 100;
-        i = 0;
-        while (i<= dateMinus200){
-            if (i >= datePlus100) {
-                System.out.println(i);
+
+        for ( year = dateMinus200; year <= datePlus100; year++) {
+            if (year % 79 == 0) {
+                System.out.println(year);
             }
-            i = i+79;
         }
     }
 }
