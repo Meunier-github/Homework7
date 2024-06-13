@@ -12,7 +12,8 @@ public class Main {
         int salary1 = 15000;
         int total1 = 0;
         int i = 1;
-        while (total1<2_459_000){
+        final int INITIAL_AMOUNT = 2_459_000;
+        while (total1<INITIAL_AMOUNT){
             total1 +=  salary1;
             System.out.println("Месяц " + i + ", сумма накоплений равна " +total1+ "рублей");
             i++;
@@ -52,11 +53,12 @@ public class Main {
         int countBirth = 17;
         int countMort = 8;
         int countPlus = countBirth - countMort;
-        i = 1;
-        while (i<=10){
-            countPeople += countPeople/1000 * countPlus;
-            System.out.println("Год " + i + ", численность населения составляет "+ countPeople);
-            i++;
+        double countPlus1000 = (double) countPlus/1000;
+        int year = 1;
+        while (year<=10){
+            countPeople += countPeople*countPlus1000;
+            System.out.println("Год " + year + ", численность населения составляет "+ countPeople);
+            year++;
         }
 
         // Задача 4
@@ -68,10 +70,11 @@ public class Main {
 
         System.out.println("Задача 4");
         double total = 15000;
-        int proc = 7;
+        final double INTEREST_RATE = 0.07;
+        final int INITIAL_AMOUNT_VASILII = 12_000_000;
         i = 1;
-        while (total<=12000000){
-            total += total/100*proc;
+        while (total<=INITIAL_AMOUNT_VASILII){
+            total += total*INTEREST_RATE;
             System.out.println("Месяц " + i + ", сумма накоплений равна " +Math.round(total)+ "рублей");
             i++;
         }
@@ -82,10 +85,9 @@ public class Main {
 
         System.out.println("Задача 5");
         total = 15000;
-        proc = 7;
         i = 1;
-        while (total<=12000000){
-            total += total/100*proc;
+        while (total<=INITIAL_AMOUNT_VASILII){
+            total += total*INTEREST_RATE;
             if (i % 6==0){
                 System.out.println("Месяц " + i + ", сумма накоплений равна " +Math.round(total)+ "рублей");
             }
@@ -100,12 +102,13 @@ public class Main {
 
         System.out.println("Задача 6");
         total = 15000;
-        proc = 7;
         i = 1;
         int period = 12*9;
         while (i <= period){
-            total += total/100*proc;
-            if (i % 6==0) System.out.println("Месяц " + i + ", сумма накоплений равна " +Math.round(total)+ "рублей");
+            total += total*INTEREST_RATE;
+            if (i % 6==0){
+                System.out.println("Месяц " + i + ", сумма накоплений равна " +Math.round(total)+ "рублей");
+            }
             i++;
         }
 
@@ -148,8 +151,6 @@ public class Main {
                 System.out.println(i);
             }
             i = i+79;
-
         }
-
     }
 }
