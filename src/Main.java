@@ -9,15 +9,19 @@ public class Main {
          которое необходимо для накопления данной суммы. Формат сообщения: «Месяц …, сумма накоплений равна … рублей» .*/
 
         System.out.println("Задача 1");
-        int salary1 = 15000;
-        int total1 = 0;
-        int i = 1;
-        final int INITIAL_AMOUNT = 2_459_000;
-        while (total1<INITIAL_AMOUNT){
-            total1 +=  salary1;
-            System.out.println("Месяц " + i + ", сумма накоплений равна " +total1+ "рублей");
-            i++;
+        final int TARGET_AMOUNT = 2_459_000;
+        final int MONTHLY_SAVINGS = 15_000;
+        final double INTEREST_RATE_1 = 0.01; // Например, 1% в месяц
+        double totalSavings = 0;
+        int months = 0;
+
+        while (totalSavings < TARGET_AMOUNT) {
+            totalSavings += MONTHLY_SAVINGS;
+            totalSavings += totalSavings * INTEREST_RATE_1;
+            months++;
+            System.out.println("Месяц " + months + ", сумма накоплений равна " + Math.round(totalSavings) + " рублей");
         }
+
 
         // Задача 2
         /*Выведите в одну строку через пробел числа от 1 до 10 с помощью цикла while.
@@ -29,7 +33,7 @@ public class Main {
         10 9 8 7 6 5 4 3 2 1*/
 
         System.out.println("Задача 2");
-        i=1;
+        int i = 1;
         while (i<=10){
             System.out.print(i + " ");
             i++;
@@ -69,14 +73,14 @@ public class Main {
         Выведите в консоль результат программы с указанием суммы накоплений по каждому месяцу.*/
 
         System.out.println("Задача 4");
-        double total = 15000;
-        final double INTEREST_RATE = 0.07;
+        double totalSaving = 15000;
+        final double INTEREST_RATE_7 = 0.07;
         final int INITIAL_AMOUNT_VASILII = 12_000_000;
-        i = 1;
-        while (total<=INITIAL_AMOUNT_VASILII){
-            total += total*INTEREST_RATE;
-            System.out.println("Месяц " + i + ", сумма накоплений равна " +Math.round(total)+ "рублей");
-            i++;
+        int month  = 1;
+        while (totalSaving <=INITIAL_AMOUNT_VASILII){
+            totalSaving += totalSaving *INTEREST_RATE_7;
+            System.out.println("Месяц " + month + ", сумма накоплений равна " +Math.round(totalSaving)+ "рублей");
+            month++;
         }
 
         // Задача 5
@@ -84,14 +88,14 @@ public class Main {
          а только каждый шестой. Должны быть видны накопления за 6-й, 12-й, 18-й, 24-й и следующие месяцы.*/
 
         System.out.println("Задача 5");
-        total = 15000;
-        i = 1;
-        while (total<=INITIAL_AMOUNT_VASILII){
-            total += total*INTEREST_RATE;
-            if (i % 6==0){
-                System.out.println("Месяц " + i + ", сумма накоплений равна " +Math.round(total)+ "рублей");
+        totalSaving = 15000;
+        month  = 1;
+        while (totalSaving <=INITIAL_AMOUNT_VASILII){
+            totalSaving += totalSaving *INTEREST_RATE_7;
+            if (month % 6==0){
+                System.out.println("Месяц " + month + ", сумма накоплений равна " +Math.round(totalSaving)+ "рублей");
             }
-            i++;
+            month++;
         }
 
         // Задача 6
@@ -101,15 +105,15 @@ public class Main {
         Напишите программу, которая будет выводить сумму накоплений за каждые полгода в течение 9 лет.*/
 
         System.out.println("Задача 6");
-        total = 15000;
-        i = 1;
+        totalSaving = 15000;
+        month  = 1;
         int period = 12*9;
-        while (i <= period){
-            total += total*INTEREST_RATE;
-            if (i % 6==0){
-                System.out.println("Месяц " + i + ", сумма накоплений равна " +Math.round(total)+ "рублей");
+        while (month <= period){
+            totalSaving += totalSaving *INTEREST_RATE_7;
+            if (month % 6==0){
+                System.out.println("Месяц " + month + ", сумма накоплений равна " +Math.round(totalSaving)+ "рублей");
             }
-            i++;
+            month++;
         }
 
         // Задача 7
@@ -142,12 +146,12 @@ public class Main {
         2054*/
 
         System.out.println("Задача 8");
-        int dateT = 2024;
-        int date1 = dateT - 200;
-        int date2 = dateT + 100;
+        int dateActual = 2024;
+        int dateMinus200 = dateActual - 200;
+        int datePlus100 = dateActual + 100;
         i = 0;
-        while (i<=date2){
-            if (i >= date1) {
+        while (i<= dateMinus200){
+            if (i >= datePlus100) {
                 System.out.println(i);
             }
             i = i+79;
